@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Rosarium
+Comment=Santo Rosario Digitale
+
+# Percorso eseguibile corretto per l'utente benerettafamily
+Exec=python3 /home/benerettafamily/Rosario/rosario.py
+
+# Percorso icona corretto per l'utente benerettafamily
+Icon=/home/benerettafamily/Rosario/images/icona.svg
+
+Terminal=false
+Categories=Utility;Religion;
+StartupNotify=true
+
+# QUESTA RIGA È FONDAMENTALE PER L'ICONA SULLA BARRA
+StartupWMClass=rosarium

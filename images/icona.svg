@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sfondo: Squircle (forma tipica delle app Linux moderne) -->
+  <rect x="32" y="32" width="448" height="448" rx="100" ry="100" fill="#0055A4" />
+  
+  <!-- Bordo dorato sottile -->
+  <rect x="32" y="32" width="448" height="448" rx="100" ry="100" fill="none" stroke="#FFD700" stroke-width="10" opacity="0.5"/>
+
+  <!-- Corona del Rosario stilizzata -->
+  <g transform="translate(256, 256)">
+    <!-- Cerchio di grani -->
+    <circle cx="0" cy="-60" r="140" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.6"/>
+    
+    <!-- Grani principali (Decine) -->
+    <circle cx="0" cy="-200" r="18" fill="#FFD700" />
+    <circle cx="135" cy="-105" r="18" fill="#FFD700" />
+    <circle cx="85" cy="55" r="18" fill="#FFD700" />
+    <circle cx="-85" cy="55" r="18" fill="#FFD700" />
+    <circle cx="-135" cy="-105" r="18" fill="#FFD700" />
+
+    <!-- Croce in basso -->
+    <g transform="translate(0, 110)">
+      <line x1="0" y1="0" x2="0" y2="60" stroke="#FFD700" stroke-width="8" stroke-linecap="round"/>
+      <!-- Corpo Croce -->
+      <path d="M0 60 L0 140 M-30 90 L30 90" stroke="#FFD700" stroke-width="12" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>
