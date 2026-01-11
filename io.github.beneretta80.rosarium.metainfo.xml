@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.beneretta80.rosarium</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Rosarium</name>
+  <summary>Pray the Holy Rosary</summary>
+  
+  <description>
+    <p>
+      Rosarium is an app to pray the Holy Rosary in Italian and Latin.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Classic Rosary with daily mysteries</li>
+      <li>Mary Undoer of Knots</li>
+      <li>Divine Mercy Chaplet</li>
+      <li>Chaplet of Saint Michael the Archangel</li>
+      <li>Bilingual support: Italian and Latin</li>
+      <li>Sacred images for each mystery</li>
+    </ul>
+  </description>
+  
+  <launchable type="desktop-id">io.github.beneretta80.rosarium.desktop</launchable>
+  
+  <url type="homepage">https://github.com/Beneretta80/rosarium</url>
+  <url type="bugtracker">https://github.com/Beneretta80/rosarium/issues</url>
+  
+  <developer_name>Beneretta80</developer_name>
+  
+  <categories>
+    <category>Education</category>
+    <category>Spirituality</category>
+  </categories>
+  
+  <releases>
+    <release version="1.0.0" date="2025-01-11">
+      <description>
+        <p>Initial release</p>
+      </description>
+    </release>
+  </releases>
+  
+  <content_rating type="oars-1.1" />
+</component>

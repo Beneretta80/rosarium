@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Rosarium
+GenericName=Rosary Prayer App
+Comment=Pray the Holy Rosary in Italian and Latin
+Icon=io.github.beneretta80.rosarium
+Exec=rosario.py
+Terminal=false
+Categories=Education;Spirituality;GNOME;GTK;
+Keywords=rosary;prayer;catholic;rosario;preghiera;
+StartupNotify=true
+StartupWMClass=rosarium

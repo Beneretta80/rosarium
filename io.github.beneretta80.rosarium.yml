@@ -1,0 +1,26 @@
+app-id: io.github.beneretta80.rosarium
+runtime: org.gnome.Platform
+runtime-version: '47'
+sdk: org.gnome.Sdk
+command: rosario.py
+
+finish-args:
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --device=dri
+
+modules:
+  - name: rosarium
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 rosario.py /app/bin/rosario.py
+      - install -Dm644 rosario_data.py /app/bin/rosario_data.py
+      - cp -r images /app/bin/
+      - install -Dm644 io.github.beneretta80.rosarium.desktop /app/share/applications/io.github.beneretta80.rosarium.desktop
+      - install -Dm644 images/icona.svg /app/share/icons/hicolor/scalable/apps/io.github.beneretta80.rosarium.svg
+      - install -Dm644 io.github.beneretta80.rosarium.metainfo.xml /app/share/metainfo/io.github.beneretta80.rosarium.metainfo.xml
+    sources:
+      - type: git
+        url: https://github.com/Beneretta80/rosarium.git
+        branch: main
