@@ -2,17 +2,15 @@
 Version=1.0
 Type=Application
 Name=Rosarium
-Comment=Santo Rosario Digitale
-
-# Percorso eseguibile corretto per l'utente benerettafamily
-Exec=python3 /home/benerettafamily/Rosario/rosario.py
-
-# Percorso icona corretto per l'utente benerettafamily
-Icon=/home/benerettafamily/Rosario/images/icona.svg
-
+GenericName=Rosary Prayer App
+Comment=Pray the Holy Rosary in Italian and Latin
+# L'icona deve corrispondere all'ID usato nel file YML
+Icon=io.github.beneretta80.rosarium
+# IMPORTANTE: Deve essere 'rosarium', il comando creato nel file YML
+Exec=rosarium
 Terminal=false
-Categories=Utility;Religion;
+Categories=Education;Spirituality;GNOME;GTK;
+Keywords=rosary;prayer;catholic;rosario;preghiera;
 StartupNotify=true
-
-# QUESTA RIGA È FONDAMENTALE PER L'ICONA SULLA BARRA
+# Questo collega la finestra all'icona
 StartupWMClass=rosarium

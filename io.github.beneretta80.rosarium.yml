@@ -2,7 +2,7 @@ app-id: io.github.beneretta80.rosarium
 runtime: org.gnome.Platform
 runtime-version: '47'
 sdk: org.gnome.Sdk
-command: rosario.py
+command: rosarium
 
 finish-args:
   - --share=ipc
@@ -10,17 +10,39 @@ finish-args:
   - --socket=fallback-x11
   - --device=dri
 
+build-options:
+  env:
+    PATH: /app/bin:/usr/bin
+
 modules:
   - name: rosarium
     buildsystem: simple
     build-commands:
-      - install -Dm755 rosario.py /app/bin/rosario.py
-      - install -Dm644 rosario_data.py /app/bin/rosario_data.py
-      - cp -r images /app/bin/
-      - install -Dm644 io.github.beneretta80.rosarium.desktop /app/share/applications/io.github.beneretta80.rosarium.desktop
-      - install -Dm644 images/icona.svg /app/share/icons/hicolor/scalable/apps/io.github.beneretta80.rosarium.svg
-      - install -Dm644 io.github.beneretta80.rosarium.metainfo.xml /app/share/metainfo/io.github.beneretta80.rosarium.metainfo.xml
+      # 1. Creiamo le cartelle necessarie
+      - mkdir -p /app/share/rosarium/images
+      - mkdir -p /app/bin
+      
+      # 2. Copiamo il programma Python e i dati in una cartella ordinata
+      - install -Dm755 rosario.py /app/share/rosarium/rosario.py
+      - install -Dm644 rosario_data.py /app/share/rosarium/rosario_data.py
+      - cp -r images/* /app/share/rosarium/images/
+      
+      # 3. CREAZIONE AUTOMATICA SCRIPT DI AVVIO (Così non ti serve il file .sh)
+      - echo '#!/bin/sh' > /app/bin/rosarium
+      - echo 'exec python3 /app/share/rosarium/rosario.py "$@"' >> /app/bin/rosarium
+      - chmod +x /app/bin/rosarium
+
+      # 4. Installiamo il file Desktop (Rinominandolo correttamente per l'ID)
+      # Nota: Qui assumo che il tuo file locale si chiami 'rosarium.desktop'
+      - install -D rosarium.desktop /app/share/applications/io.github.beneretta80.rosarium.desktop
+      
+      # 5. Installiamo l'icona (Rinominandola correttamente per l'ID)
+      - install -D images/icona.svg /app/share/icons/hicolor/scalable/apps/io.github.beneretta80.rosarium.svg
+      
+      # 6. Metainfo (Opzionale: se non hai il file xml, cancella queste due righe sotto)
+      # - install -Dm644 io.github.beneretta80.rosarium.metainfo.xml /app/share/metainfo/io.github.beneretta80.rosarium.metainfo.xml
+
     sources:
-      - type: git
-        url: https://github.com/Beneretta80/rosarium.git
-        branch: main
+      # USA I FILE LOCALI, NON GITHUB (Fondamentale per vedere le modifiche subito)
+      - type: dir
+        path: .

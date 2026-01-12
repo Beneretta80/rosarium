@@ -28,6 +28,14 @@
   
   <developer_name>Beneretta80</developer_name>
   
+  <!-- IMPORTANTE: Questo screenshot deve esistere su GitHub! -->
+  <screenshots>
+    <screenshot type="default">
+      <caption>Main Window</caption>
+      <image>https://raw.githubusercontent.com/Beneretta80/rosarium/main/images/screenshot_main.png</image>
+    </screenshot>
+  </screenshots>
+  
   <categories>
     <category>Education</category>
     <category>Spirituality</category>
