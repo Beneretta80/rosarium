@@ -18,31 +18,29 @@ modules:
   - name: rosarium
     buildsystem: simple
     build-commands:
-      # 1. Creiamo le cartelle necessarie
+      # 1. Creazione cartelle
       - mkdir -p /app/share/rosarium/images
       - mkdir -p /app/bin
+      - mkdir -p /app/share/applications
+      - mkdir -p /app/share/icons/hicolor/scalable/apps
+      - mkdir -p /app/share/metainfo
       
-      # 2. Copiamo il programma Python e i dati in una cartella ordinata
+      # 2. Copia file Python e Immagini
       - install -Dm755 rosario.py /app/share/rosarium/rosario.py
       - install -Dm644 rosario_data.py /app/share/rosarium/rosario_data.py
       - cp -r images/* /app/share/rosarium/images/
       
-      # 3. CREAZIONE AUTOMATICA SCRIPT DI AVVIO (Così non ti serve il file .sh)
+      # 3. Creazione script di avvio
       - echo '#!/bin/sh' > /app/bin/rosarium
       - echo 'exec python3 /app/share/rosarium/rosario.py "$@"' >> /app/bin/rosarium
       - chmod +x /app/bin/rosarium
 
-      # 4. Installiamo il file Desktop (Rinominandolo correttamente per l'ID)
-      # Nota: Qui assumo che il tuo file locale si chiami 'rosarium.desktop'
+      # 4. Installazione Desktop file, Icona e Metainfo (CARTA D'IDENTITÀ)
       - install -D rosarium.desktop /app/share/applications/io.github.beneretta80.rosarium.desktop
-      
-      # 5. Installiamo l'icona (Rinominandola correttamente per l'ID)
       - install -D images/icona.svg /app/share/icons/hicolor/scalable/apps/io.github.beneretta80.rosarium.svg
-      
-      # 6. Metainfo (Opzionale: se non hai il file xml, cancella queste due righe sotto)
-      # - install -Dm644 io.github.beneretta80.rosarium.metainfo.xml /app/share/metainfo/io.github.beneretta80.rosarium.metainfo.xml
+      - install -Dm644 io.github.beneretta80.rosarium.metainfo.xml /app/share/metainfo/io.github.beneretta80.rosarium.metainfo.xml
 
     sources:
-      # USA I FILE LOCALI, NON GITHUB (Fondamentale per vedere le modifiche subito)
-      - type: dir
-        path: .
+      - type: git
+        url: https://github.com/Beneretta80/rosarium.git
+        commit: c0d985a0e988264f53b9ac6b118b02375ddaf123
